@@ -10,7 +10,12 @@ datasource db {
 model City {
   id      Int    @id @default(autoincrement())
   name    String
+  description String
+  temp Int
+  humidity Int
   user_id Int
+  createdAt          DateTime?            @default(now()) @db.Timestamp(6)
+  updatedAt          DateTime?            @db.Timestamp(6)
   User    User   @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
@@ -19,5 +24,7 @@ model User {
   password String @db.VarChar
   name     String
   email    String @unique
+  createdAt          DateTime?            @default(now()) @db.Timestamp(6)
+  updatedAt          DateTime?            @db.Timestamp(6)
   City     City[]
 }

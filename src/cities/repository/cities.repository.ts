@@ -14,6 +14,8 @@ export class CitiesRepository {
         user_id: userId,
         humidity: city.humidity,
         temp: city.temp,
+        icon: city.icon,
+        country: city.country,
         updatedAt: new Date(),
         description: city.description,
       },
@@ -24,9 +26,25 @@ export class CitiesRepository {
     return await this.prisma.city.findMany();
   }
 
+  async updateCity(city: CityDTO, id: number){
+    return await this.prisma.city.update({
+      where: {id},
+      data:{
+        name: city.name,
+        humidity: city.humidity,
+        temp: city.temp,
+        icon: city.icon,
+        country: city.country,
+        updatedAt: new Date(),
+        description: city.description,
+      }
+    })
+  }
+
   async findUserCities(user_id: number) {
     return await this.prisma.city.findMany({
       where: { user_id },
+      orderBy: {name: 'asc'},
     });
   }
 

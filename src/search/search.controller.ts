@@ -15,7 +15,12 @@ export class SearchController {
     @UseGuards(AuthGuard)
     @Post()
     async postCity(@Body() body: CidadePesquisa, @Users() reqUser: User){
-        console.log(reqUser.id)
         return await this.searchService.postCity(body.city, reqUser.id)
+    };
+
+    @UseGuards(AuthGuard)
+    @Get()
+    async getTemps(@Users() reqUser: User){
+        return await this.searchService.getTemps(reqUser.id);
     }
 }

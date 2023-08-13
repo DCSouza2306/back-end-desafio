@@ -14,13 +14,8 @@ export class CitiesController {
         return await this.citiesService.findAll()
     }
 
-    @UseGuards(AuthGuard) 
-    @Get()
-    async findUserCities(@Users() reqUser: User){
-        return await this.citiesService.findUserCities(reqUser.id)
-    }
-
-    @Delete()
+    @UseGuards(AuthGuard)
+    @Delete("/:id")
     async delete(@Param("id", ParseIntPipe) id: number){
         return await this.citiesService.delete(id);
     }

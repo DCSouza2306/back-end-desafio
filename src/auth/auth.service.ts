@@ -55,6 +55,6 @@ export class AuthService {
       },
     );
 
-    return { token };
+    return { token, name: user.name };
   }
 }

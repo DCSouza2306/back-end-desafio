@@ -12,6 +12,8 @@ model City {
   name    String
   description String
   temp Int
+  icon String
+  country String
   humidity Int
   user_id Int
   createdAt          DateTime?            @default(now()) @db.Timestamp(6)

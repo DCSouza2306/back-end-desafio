@@ -10,6 +10,12 @@ export class CityDTO {
   @IsNumber()
   humidity: number;
 
+  @IsString()
+  icon: string;
+
+  @IsString()
+  country: string;
+
   @IsNumber()
   temp: number;
 

@@ -1,4 +1,4 @@
-# Desafio Arbitralis - Back-end
+# Meu Tempo - Back-end
 
 Api elaborada para para fornecer os dados da aplicação Meu Tempo, onde o usuário pode acompanhar a previsão do tempo nas cidades de sua preferência.
 
